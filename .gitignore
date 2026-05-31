@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+frames/
+*.gif
+!docs/demo.gif

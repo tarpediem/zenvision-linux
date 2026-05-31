@@ -1,0 +1,4 @@
+# ASUS ZenVision lid OLED (Nuvoton M480) — allow non-root access.
+# Install: sudo cp 99-zenvision.rules /etc/udev/rules.d/
+#          sudo udevadm control --reload-rules && sudo udevadm trigger
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="8835", MODE="0660", TAG+="uaccess", GROUP="plugdev"
