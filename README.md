@@ -1,5 +1,10 @@
 # zenvision-linux
 
+> 🟢 **The first open-source Linux driver for the ASUS ZenVision lid OLED** — the
+> protocol was reverse-engineered from scratch (Ghidra on MyASUS). Want live
+> applets and audio-reactive visualisers on top? See the companion app
+> **[zenvision-studio](https://github.com/tarpediem/zenvision-studio)**.
+
 Userspace Linux driver for the **ASUS ZenVision** lid OLED — the 3.5", 256×64
 monochrome screen embedded in the lid of the **ASUS Zenbook 14X OLED Space
 Edition (UX5401ZAS)**.
