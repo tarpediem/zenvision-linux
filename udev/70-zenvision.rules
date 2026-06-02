@@ -1,0 +1,10 @@
+# ASUS ZenVision lid OLED (Nuvoton M480) — grant the active local user access.
+#
+# The filename MUST sort before 73-seat-late.rules: that rule runs the `uaccess`
+# builtin, so TAG+="uaccess" has to be set earlier (a 99- prefix is too late and
+# the ACL is never applied). `uaccess` ACLs the device to the active session user
+# — the right mechanism on systemd (no plugdev group).
+#
+# Install: sudo cp 70-zenvision.rules /etc/udev/rules.d/
+#          sudo udevadm control --reload-rules && sudo udevadm trigger
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="8835", TAG+="uaccess"

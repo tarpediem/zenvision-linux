@@ -37,6 +37,12 @@ python -m venv .venv && . .venv/bin/activate
 pip install pyusb pillow
 ```
 
+### Arch Linux (AUR)
+
+```bash
+yay -S zenvision-linux-git        # installs the `zenvision` CLI + the udev rule
+```
+
 ## Usage
 
 ```bash
@@ -72,11 +78,14 @@ it. (Tip: `rsvg-convert` an SVG, or `ffmpeg -i clip.gif frames/%03d.png`.)
 Copy the rule so your user can access the device:
 
 ```bash
-sudo cp udev/99-zenvision.rules /etc/udev/rules.d/
+sudo cp udev/70-zenvision.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
-Then run without `sudo` (you may need to be in the `plugdev` group).
+The `70-` prefix matters: the rule must sort **before** `73-seat-late.rules` so the
+`uaccess` tag is applied — otherwise the ACL is never granted. `uaccess` gives the
+logged-in user access (the right mechanism on systemd; no `plugdev` group needed).
+Then run without `sudo`.
 
 ## Notes & safety
 
